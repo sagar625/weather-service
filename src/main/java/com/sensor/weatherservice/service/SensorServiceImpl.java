@@ -3,18 +3,12 @@ package com.sensor.weatherservice.service;
 import com.sensor.weatherservice.dto.SensorDTO;
 import com.sensor.weatherservice.model.Sensor;
 import com.sensor.weatherservice.repository.SensorRepository;
-import com.sensor.weatherservice.utils.DateUtils;
-import org.hibernate.criterion.CriteriaQuery;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.CriteriaBuilder;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Timer;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -75,12 +69,12 @@ private final SensorRepository sensorRepository;
     }
 
 //    @Override
-//    public ResponseEntity<List<SensorDTO>> findByStartDateBetween(String start, String end) {
+//    public ResponseEntity<List<Sensor>> findByStartDateBetween(Date start, Date end) {
 //        List<Sensor> sensorList = new ArrayList<>();
 //        sensorRepository.findByStartDateBetween(start,end).forEach((s->sensorList.add(s)));
 //        return sensorList.isEmpty() ?
 //                ResponseEntity.ok(new ArrayList<>()):
-//                ResponseEntity.ok(sensorList.stream().map(sensor->SensorDTO._toConvertFromSensorEntity(sensor))
+//                ResponseEntity.ok(sensorList.stream()
 //                        .collect(Collectors.toList()));
 //    }
 

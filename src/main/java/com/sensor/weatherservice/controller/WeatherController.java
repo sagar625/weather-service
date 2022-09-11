@@ -29,11 +29,6 @@ public class WeatherController {
 
     private final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-//    @PostMapping(path="event", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseEntity<Sensor> add_event(@RequestBody Sensor sensor){
-//        return new ResponseEntity<>(sensor, HttpStatus.CREATED);
-//    }
-
     @PostMapping(value = "/events")
     public ResponseEntity addEvent(@RequestBody SensorDTO body) {
         return sensorService.createEvent(body);
@@ -55,10 +50,10 @@ public class WeatherController {
         return sensorService.findAll();
     }
 
-
+//
 //    @GetMapping("/sensor_data/created_at")
-//    public ResponseEntity<List<SensorDTO>> findByStartDateBetween (@RequestParam String startDate,
-//                                                                 @RequestParam String endDate) {
+//    public ResponseEntity<List<Sensor>> findByStartDateBetween (@RequestParam Date startDate,
+//                                                                 @RequestParam Date endDate) {
 //        return sensorService.findByStartDateBetween(startDate,endDate);
 //    }
 

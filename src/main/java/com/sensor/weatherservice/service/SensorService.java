@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 public interface SensorService {
@@ -19,7 +20,9 @@ public interface SensorService {
 
     ResponseEntity<List<Sensor>> findAll();
 
-//    ResponseEntity<List<SensorDTO>> findByStartDateBetween(
-//            String timeStart,
-//            String timeEnd);
+
+//    ResponseEntity<List<Sensor>> findByStartDateBetween(
+//            Date timeStart,
+//            Date timeEnd);
+
 }

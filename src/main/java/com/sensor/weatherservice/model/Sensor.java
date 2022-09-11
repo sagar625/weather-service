@@ -2,6 +2,7 @@ package com.sensor.weatherservice.model;
 
 
 import jdk.jfr.Enabled;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class Sensor {
     private Float ws;
 
     private Float hum;
+    @CreationTimestamp
     private Date createdAt;
 
     public Sensor() {

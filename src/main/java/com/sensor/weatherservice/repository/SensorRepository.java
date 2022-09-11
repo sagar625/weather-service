@@ -19,10 +19,6 @@ import java.util.function.Function;
 @Repository
 public interface SensorRepository extends JpaRepository<Sensor, Long> {
     List<Sensor> findBySensorName(String sensorName);
-
-
-//    @Query("SELECT * FROM Sensor s WHERE s.sensorName IN :names")
-//    public List<Sensor> findAllBySensorNames(@Param("names") Collection<String> sensorNames);
     List<Sensor> findAll();
 
     @Query("SELECT AVG(p.temp), MIN(p.temp), MAX(p.temp), SUM(p.temp) from Sensor p where p.sensorName = ?1")
@@ -30,12 +26,7 @@ public interface SensorRepository extends JpaRepository<Sensor, Long> {
 
 //    @Query("SELECT AVG(a.hum), MIN(p.temp), MAX(p.temp), SUM(p.temp) from Sensor a where a.created_at between ?1 and ?2")
 //    List<Sensor> findByStartDateBetween(
-//            String timeStart,
-//            String timeEnd);
-
-//    List<Article> findAllWithCreationDateTimeBefore(
-//            @Param("creationDateTime") Date creationDateTime);
-
-
+//            Date timeStart,
+//            Date timeEnd);
 
 }

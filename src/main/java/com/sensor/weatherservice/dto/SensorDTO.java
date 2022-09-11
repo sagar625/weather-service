@@ -1,9 +1,6 @@
 package com.sensor.weatherservice.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.sensor.weatherservice.model.Sensor;
-import com.sensor.weatherservice.utils.DateUtils;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 public class SensorDTO {
@@ -24,11 +21,6 @@ public class SensorDTO {
         this.hum = hum;
         this.createdAt = createdAt;
     }
-
-//    public static SensorDTO _toConvertFromSensorEntity(Sensor sensor) {
-//        return new SensorDTO(sensor.getId(), sensor.getSensorName(), sensor.getTemp()
-//              , sensor.getWs(),  sensor.getHum(), DateUtils.getCreatedAtAsFormatString(sensor));
-//    }
 
     public Long getId() {
         return id;
