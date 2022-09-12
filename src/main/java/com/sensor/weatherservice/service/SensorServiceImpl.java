@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 
 @Service
-public class SensorServiceImpl implements SensorService{
+public class SensorServiceImpl implements SensorService {
 private final SensorRepository sensorRepository;
 
     public SensorServiceImpl(SensorRepository sensorRepository) {
@@ -49,6 +49,15 @@ private final SensorRepository sensorRepository;
         return ResponseEntity.ok(sensorRepository.findTempStatsBySensor(sensorName));
     }
 
+    @Override
+    public ResponseEntity<Object> findHumStatsBySensor(String sensorName) {
+        return ResponseEntity.ok(sensorRepository.findHumStatsBySensor(sensorName)); }
+
+        @Override
+        public ResponseEntity<Object> findWSStatsBySensor(String sensorName) {
+            return ResponseEntity.ok(sensorRepository.findWSStatsBySensor(sensorName));
+
+        }
 //    @Override
 //    public ResponseEntity<List<SensorDTO>> findAllBySensorNames(List<String> sensorNames) {
 //        List<Sensor> sensorList = new ArrayList<>();

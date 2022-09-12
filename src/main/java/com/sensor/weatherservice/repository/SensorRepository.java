@@ -19,11 +19,18 @@ import java.util.function.Function;
 @Repository
 public interface SensorRepository extends JpaRepository<Sensor, Long> {
     List<Sensor> findBySensorName(String sensorName);
+
     List<Sensor> findAll();
 
     @Query("SELECT AVG(p.temp), MIN(p.temp), MAX(p.temp), SUM(p.temp) from Sensor p where p.sensorName = ?1")
     Object findTempStatsBySensor(String sensorName);
 
+    @Query("SELECT AVG(p.hum), MIN(p.hum), MAX(p.hum), SUM(p.hum) from Sensor p where p.sensorName = ?1")
+    Object findHumStatsBySensor(String sensorName);
+
+
+    @Query("SELECT AVG(p.ws), MIN(p.ws), MAX(p.ws), SUM(p.ws) from Sensor p where p.sensorName = ?1")
+    Object findWSStatsBySensor(String sensorName);
 //    @Query("SELECT AVG(a.hum), MIN(p.temp), MAX(p.temp), SUM(p.temp) from Sensor a where a.created_at between ?1 and ?2")
 //    List<Sensor> findByStartDateBetween(
 //            Date timeStart,

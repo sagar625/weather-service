@@ -18,6 +18,10 @@ public interface SensorService {
 
     ResponseEntity<Object> findTempStatsBySensor(String sensorName);
 
+    ResponseEntity<Object> findHumStatsBySensor(String sensorName);
+
+    ResponseEntity<Object> findWSStatsBySensor(String sensorName);
+
     ResponseEntity<List<Sensor>> findAll();
 
 

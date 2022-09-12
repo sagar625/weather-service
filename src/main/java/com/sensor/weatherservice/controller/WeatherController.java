@@ -34,27 +34,29 @@ public class WeatherController {
         return sensorService.createEvent(body);
     }
 
-@GetMapping(value = "/{sensorName}", produces = "application/json")
+    @GetMapping(value = "/{sensorName}", produces = "application/json")
     ResponseEntity<List<Sensor>> getDataBySensorName(@PathVariable String sensorName) {
         return sensorService.findBySensorName(sensorName);
 }
 
-    @GetMapping(value = "/all_stats/{sensorName}", produces = "application/json")
-    ResponseEntity<Object> getAvgDataBySensorName(@PathVariable String sensorName) {
+    @GetMapping(value = "/all_stats_temp/{sensorName}", produces = "application/json")
+    ResponseEntity<Object> getAvgTempDataBySensorName(@PathVariable String sensorName) {
         return sensorService.findTempStatsBySensor(sensorName);
     }
 
+    @GetMapping(value = "/all_stats_hum/{sensorName}", produces = "application/json")
+    ResponseEntity<Object> getAvgHumDataBySensorName(@PathVariable String sensorName) {
+        return sensorService.findTempStatsBySensor(sensorName);
+    }
+
+    @GetMapping(value = "/all_stats_ws/{sensorName}", produces = "application/json")
+    ResponseEntity<Object> getAvgWSDataBySensorName(@PathVariable String sensorName) {
+        return sensorService.findWSStatsBySensor(sensorName);
+    }
 
     @GetMapping(value = "/all", produces = "application/json")
     ResponseEntity<List<Sensor>> getAllSensorData() {
         return sensorService.findAll();
     }
-
-//
-//    @GetMapping("/sensor_data/created_at")
-//    public ResponseEntity<List<Sensor>> findByStartDateBetween (@RequestParam Date startDate,
-//                                                                 @RequestParam Date endDate) {
-//        return sensorService.findByStartDateBetween(startDate,endDate);
-//    }
 
 }
