@@ -19,6 +19,7 @@ public interface SensorService {
 
     ResponseEntity<List<Sensor>> findAll();
 
+//    ResponseEntity<List<Sensor>> findBySensors(String[] names);
 
 //    ResponseEntity<List<Sensor>> findByStartDateBetween(
 //            Date timeStart,

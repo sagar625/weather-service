@@ -7,8 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 
@@ -20,14 +21,9 @@ private final SensorRepository sensorRepository;
         this.sensorRepository = sensorRepository;
     }
 
-    private CriteriaBuilder criteriaBuilder;
-
 
     @Override
     public ResponseEntity<Object> createEvent(SensorDTO sensorDTO) {
-//        if (sensorRepository.findOne(sensorDTO.getId()) != null) {
-//            return new ResponseEntity(HttpStatus.BAD_REQUEST);
-//        }
         Sensor sensor = new Sensor(sensorDTO.getId(), sensorDTO.getSensorName(), sensorDTO.getTemp(),
                 sensorDTO.getWs(),sensorDTO.getHum(), sensorDTO.getCreatedAt());
         sensorRepository.save(sensor);
@@ -76,6 +72,15 @@ private final SensorRepository sensorRepository;
                 ResponseEntity.ok(new ArrayList<>()):
                 ResponseEntity.ok(sensorList.stream().collect(Collectors.toList()));
     }
+
+//    @Override
+//    public ResponseEntity<List<Sensor>> findBySensors(String[] names) {
+//        List<Sensor> sensorList = new ArrayList<>();
+//        sensorRepository.findBySensors(names).forEach((s->sensorList.add(s)));
+//        return sensorList.isEmpty() ?
+//                ResponseEntity.ok(new ArrayList<>()):
+//                ResponseEntity.ok(sensorList.stream().collect(Collectors.toList()));
+//    }
 
 //    @Override
 //    public ResponseEntity<List<Sensor>> findByStartDateBetween(Date start, Date end) {

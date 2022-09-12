@@ -46,9 +46,14 @@ public class WeatherController {
         return sensorService.findWSStatsBySensor(sensorName);
     }
 
-    @GetMapping(value = "/all", produces = "application/json")
+    @GetMapping(value = "/all_sensors", produces = "application/json")
     ResponseEntity<List<Sensor>> getAllSensorData() {
         return sensorService.findAll();
     }
+
+//    @GetMapping(value = "/sensors", produces = "application/json")
+//    ResponseEntity<List<Sensor>> getSensorsData(@RequestParam String[]  names) {
+//        return sensorService.findBySensors(names);
+//    }
 
 }
