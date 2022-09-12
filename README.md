@@ -1,6 +1,6 @@
 # weather-service
 
-To run this application. First run the maven clean and install then build the project and run the application WeatherServiceApplication. We are using H2 in memory database for persistence.
+To run this application. First run the maven clean and install then build the project and run the application WeatherServiceApplication. We are using H2 in memory database for persistence. http://localhost:8080/h2-console
 
 Five endpoints are currently exposed on port 8080. 
 ***
